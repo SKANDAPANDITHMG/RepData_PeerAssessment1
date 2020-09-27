@@ -491,7 +491,7 @@ median_step &lt;- median(total_steps_per_day$Steps, na.rm = TRUE)</code></pre>
 <pre class="r"><code>activity_imputed$day_type &lt;- ifelse(activity_imputed$day == &quot;Saturday&quot;|activity_imputed$day == &quot;Sunday&quot;, &quot;weekend&quot;, &quot;weekday&quot;)
 
 activity_imputed$day_type &lt;- as.factor(activity_imputed$day_type)</code></pre>
-<pre class="r"><code># create table with steps per time across weekdaydays or weekend days
+<pre class="r"><code># create table with steps per time across weekday days or weekend days
 
 StepsPerTimeDT &lt;- aggregate(steps ~ interval + day_type, data=activity_imputed, FUN=mean, na.action=na.omit)
 

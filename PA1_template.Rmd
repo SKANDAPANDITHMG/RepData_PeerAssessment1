@@ -39,7 +39,7 @@ print(steps_per_day)
 
 Creating histogram of total number of steps taken each day
 
-```{r}
+```{r total steps}
 hist(steps_per_day$Steps, breaks = 5, xlab = "Steps", main = "Total Steps Per Day")
 ```
 
@@ -55,7 +55,7 @@ The mean and median number of steps taken per day are `r mean_steps` and `r medi
 
 ## What is the average daily activity pattern?
 
-```{r, warning=F, message=F}
+```{r daily pattern, warning=F, message=F}
 library(tidyverse)
 
 daily_pattern <- activity %>% 
@@ -122,7 +122,7 @@ head(activity_imputed, 10)
 
 Creating Histogram for total number of steps per day
 
-```{r, message=F, warning=F}
+```{r total steps imputed, message=F, warning=F}
 library(tidyverse, quietly = TRUE)
 total_steps_per_day <- activity_imputed %>% 
         group_by(date) %>% 
@@ -155,7 +155,7 @@ activity_imputed$day_type <- ifelse(activity_imputed$day == "Saturday"|activity_
 activity_imputed$day_type <- as.factor(activity_imputed$day_type)
 ```
 
-```{r}
+```{r steps per time for different weekdays}
 # create table with steps per time across weekday days or weekend days
 
 StepsPerTimeDT <- aggregate(steps ~ interval + day_type, data=activity_imputed, FUN=mean, na.action=na.omit)

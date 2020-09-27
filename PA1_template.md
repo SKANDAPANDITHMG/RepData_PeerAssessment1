@@ -72,7 +72,7 @@ Creating histogram of total number of steps taken each day
 hist(steps_per_day$Steps, breaks = 5, xlab = "Steps", main = "Total Steps Per Day")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
+![](PA1_template_files/figure-html/total steps-1.png)<!-- -->
 
 
 
@@ -101,7 +101,7 @@ p <- ggplot(daily_pattern, aes(x=interval, y=average), xlab = "Interval", ylab="
 p + geom_line()+xlab("Interval")+ylab("Average Number of Steps")+ggtitle("Average Number of Steps per Interval")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
+![](PA1_template_files/figure-html/daily pattern-1.png)<!-- -->
 
 
 
@@ -184,7 +184,7 @@ colnames(total_steps_per_day) <- c("Date", "Steps")
 hist(total_steps_per_day$Steps, breaks = 5, xlab = "Steps", main = "Total Steps Per Day")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
+![](PA1_template_files/figure-html/total steps imputed-1.png)<!-- -->
 
 
 
@@ -212,7 +212,7 @@ activity_imputed$day_type <- as.factor(activity_imputed$day_type)
 
 
 ```r
-# create table with steps per time across weekdaydays or weekend days
+# create table with steps per time across weekday days or weekend days
 
 StepsPerTimeDT <- aggregate(steps ~ interval + day_type, data=activity_imputed, FUN=mean, na.action=na.omit)
 
@@ -223,7 +223,7 @@ j <- ggplot(StepsPerTimeDT, aes(interval, steps))
 j+geom_line(col="darkred") + ggtitle("Average steps per time interval: weekdays vs. weekends") + xlab("Interval") + ylab("Steps") + theme(plot.title = element_text(face="bold", size=12)) + facet_grid(day_type ~ .)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-13-1.png)<!-- -->
+![](PA1_template_files/figure-html/steps per time for different weekdays-1.png)<!-- -->
 
 
 The step activity trends are different based on whether the day occurs on a weekend or not. This may be due to people having an increased opportunity for activity beyond normal work hours for those who work during the week.
